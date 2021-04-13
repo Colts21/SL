@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+
 @Entity(tableName = "users")
 public class UserEntity {
 
@@ -18,6 +20,39 @@ public class UserEntity {
 
     @ColumnInfo(name = "name")
     String name;
+
+    @ColumnInfo(name = "firstname")
+    String firstname;
+
+    @ColumnInfo(name = "birthday")
+    LocalDateTime birthday;
+
+    @ColumnInfo(name = "email")
+    String email;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public LocalDateTime getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;

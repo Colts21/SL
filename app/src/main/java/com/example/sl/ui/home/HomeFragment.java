@@ -24,14 +24,21 @@ import com.example.sl.model.AnnonceEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Retrofit;
+
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+
+    //La classe FragmentHomeBinding est générée automatiquement grâce aux tag <layout>
     private FragmentHomeBinding binding;
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://api.github.com/")
+            .build();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
+        //Accès à tous le layout et les vues via le binding
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
         List<AnnonceEntity> annonceList = new ArrayList<>();
@@ -47,18 +54,6 @@ public class HomeFragment extends Fragment {
         binding.recyclerView.setAdapter(adapter);
 
         return binding.getRoot();
-        /*
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-         */
+
     }
 }

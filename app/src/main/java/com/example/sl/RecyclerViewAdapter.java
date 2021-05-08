@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sl.databinding.ItemDesignBinding;
 import com.example.sl.model.AnnonceEntity;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private List<AnnonceEntity> list;
+
+    private DateTimeFormatter dateTimeFormatter;
 
     public RecyclerViewAdapter(List<AnnonceEntity> list){
         this.list = list;

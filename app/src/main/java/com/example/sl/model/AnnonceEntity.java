@@ -5,6 +5,9 @@ import android.graphics.drawable.Drawable;
 import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class AnnonceEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -20,14 +23,26 @@ public class AnnonceEntity {
     private String price;
 
     @ColumnInfo(name = "date")
-    private String date;
+    private LocalDateTime date;
 
-    public AnnonceEntity(int id, Drawable image, String title, String price, String date) {
+    @ColumnInfo(name = "description")
+    private String description;
+
+    public AnnonceEntity(int id, Drawable image, String title, String price, LocalDateTime date, String description) {
         this.id = id;
         this.image = image;
         this.title = title;
         this.price = price;
         this.date = date;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -62,11 +77,11 @@ public class AnnonceEntity {
         this.price = price;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 }

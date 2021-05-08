@@ -12,7 +12,7 @@ public interface UserDao {
     @Insert
     void registerUsers(UserEntity userEntity);
 
-    @Query("SELECT * FROM users WHERE userId=(:userId) and password=(:password)")
+    @Query("SELECT * FROM users WHERE userId=(:userId) AND password=(:password)")
     UserEntity login(String userId, String password);
 
 }

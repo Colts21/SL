@@ -38,7 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.binding.imageView1.setImageDrawable(list.get(position).getImage());
         holder.binding.titleView.setText(list.get(position).getTitle());
         holder.binding.priceView.setText(list.get(position).getPrice());
-        holder.binding.dateView.setText(list.get(position).getDate());
+        //holder.binding.dateView.setText(list.get(position).getDate());
     }
 
     @Override

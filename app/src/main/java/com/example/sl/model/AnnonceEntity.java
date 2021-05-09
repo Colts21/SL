@@ -37,6 +37,14 @@ public class AnnonceEntity {
         this.description = description;
     }
 
+
+    public AnnonceEntity(int i, Drawable image, String fifa, String title, String price) {
+        this.image = image;
+        this.title = title;
+        this.price = price;
+    }
+
+
     public String getDescription() {
         return description;
     }

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.sl.R;
 import com.example.sl.RecyclerViewAdapter;
 import com.example.sl.databinding.FragmentHomeBinding;
+import com.example.sl.databinding.ItemDesignBinding;
 import com.example.sl.model.AnnonceEntity;
 import com.example.sl.network.AnnonceService;
 
@@ -29,14 +30,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
-    //La classe FragmentHomeBinding est générée automatiquement grâce aux tag <layout>
-    private FragmentHomeBinding binding;
+    //La classe ItemDesignBinding est générée automatiquement grâce aux tag <layout>
+    private ItemDesignBinding binding;
+    private FragmentHomeBinding binding2;
 
+    //Appel de l'API via retrofit
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://localhost:5001/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build();
 
     AnnonceService annonceService = retrofit.create(AnnonceService.class);
@@ -44,21 +49,37 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         //Accès à tous le layout et les vues via le binding
-        binding = FragmentHomeBinding.inflate(getLayoutInflater());
+        binding = ItemDesignBinding.inflate(getLayoutInflater());
 
         List<AnnonceEntity> annonceList = new ArrayList<>();
-
+        //Appel de la liste via l'API
         Call<List<AnnonceEntity>> call = annonceService.getAnnonces();
 
         call.enqueue(new Callback<List<AnnonceEntity>>() {
             @Override
             public void onResponse(Call<List<AnnonceEntity>> call, Response<List<AnnonceEntity>> response) {
 
+                if(!response.isSuccessful()){
+                    binding.titleView.setText("Code : " + response.code());
+                    return;
+                }
+                List<AnnonceEntity> annonces = response.body();
+
+                for(AnnonceEntity annonce : annonces){
+                    String content = "";
+                    content += annonce.getImage();
+                    content += annonce.getTitle();
+                    content += annonce.getTitle();
+
+                    //permet de ne pas écraser les anciennes annonces
+                    binding.titleView.append(content);
+                }
             }
 
             @Override
             public void onFailure(Call<List<AnnonceEntity>> call, Throwable t) {
-
+                //Message d'erreur qui s'affiche si erreur il y a
+                binding.titleView.setText(t.getMessage());
             }
         });
 
@@ -73,8 +94,8 @@ public class HomeFragment extends Fragment {
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(annonceList);
 
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        binding.recyclerView.setAdapter(adapter);
+        binding2.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        binding2.recyclerView.setAdapter(adapter);
 
         return binding.getRoot();
     }

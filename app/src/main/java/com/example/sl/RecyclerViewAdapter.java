@@ -18,8 +18,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<AnnonceEntity> list;
 
-    private DateTimeFormatter dateTimeFormatter;
-
     public RecyclerViewAdapter(List<AnnonceEntity> list){
         this.list = list;
     }

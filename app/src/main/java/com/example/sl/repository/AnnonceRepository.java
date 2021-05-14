@@ -3,6 +3,8 @@ package com.example.sl.repository;
 import com.example.sl.model.AnnonceEntity;
 import com.example.sl.network.AnnonceService;
 
+import java.util.List;
+
 import retrofit2.Call;
 
 public class AnnonceRepository {
@@ -13,7 +15,7 @@ public class AnnonceRepository {
         this.annonceService = annonceService;
     }
 
-    public Call<AnnonceEntity> getAnnoncesById(String id){
-        return annonceService.getAnnonces(id);
+    public Call<List<AnnonceEntity>> getAnnonces(){
+        return annonceService.getAnnonces();
     }
 }

@@ -11,22 +11,22 @@ import java.util.Date;
 public class AnnonceEntity {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    int id;
 
     @ColumnInfo(name = "image")
-    private Drawable image;
+    Drawable image;
 
     @ColumnInfo(name = "title")
-    private String title;
+    String title;
 
     @ColumnInfo(name = "price")
-    private String price;
+    String price;
 
     @ColumnInfo(name = "date")
-    private LocalDateTime date;
+    LocalDateTime date;
 
     @ColumnInfo(name = "description")
-    private String description;
+    String description;
 
     public AnnonceEntity(int id, Drawable image, String title, String price, LocalDateTime date, String description) {
         this.id = id;

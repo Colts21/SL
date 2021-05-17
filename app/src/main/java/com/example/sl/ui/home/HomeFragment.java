@@ -34,9 +34,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
-    //La classe ItemDesignBinding est générée automatiquement grâce aux tag <layout>
+    //La classe FragmentHomeBinding est générée automatiquement grâce aux tag <layout>
     private FragmentHomeBinding binding;
-    private List<AnnonceEntity> annonceList;
+    private List<AnnonceEntity> annonceList = new ArrayList<>();;
     private RecyclerViewAdapter recyclerViewAdapter;
 
     //Appel de l'API via retrofit
@@ -72,11 +72,11 @@ public class HomeFragment extends Fragment {
        /* annonceList.add(new AnnonceEntity(1, ResourcesCompat.getDrawable(getResources(), R.drawable.fifa,null), "Fifa", "25€", "10/04/2021", "Test"));
         annonceList.add(new AnnonceEntity(2, ResourcesCompat.getDrawable(getResources(), R.drawable.rl,null), "Rocket League", "5€", "05/04/2021","Test1"));
         annonceList.add(new AnnonceEntity(3, ResourcesCompat.getDrawable(getResources(), R.drawable.uno,null), "Uno", "5€", "01/04/2021","Test2"));
-        annonceList.add(new AnnonceEntity(4, ResourcesCompat.getDrawable(getResources(), R.drawable.fortnite,null), "Fornite", "1€", "24/03/2021","Test3"));*/
+        annonceList.add(new AnnonceEntity(4, ResourcesCompat.getDrawable(getResources(), R.drawable.fortnite,null), "Fornite", "1€", "24/03/2021","Test3"));
         annonceList.add(new AnnonceEntity(1, ResourcesCompat.getDrawable(getResources(), R.drawable.fifa,null), "Fifa", "25€", "Test"));
         annonceList.add(new AnnonceEntity(2, ResourcesCompat.getDrawable(getResources(), R.drawable.rl,null), "Rocket League", "5€", "Test1"));
         annonceList.add(new AnnonceEntity(3, ResourcesCompat.getDrawable(getResources(), R.drawable.uno,null), "Uno", "5€", "Test2"));
-        annonceList.add(new AnnonceEntity(4, ResourcesCompat.getDrawable(getResources(), R.drawable.fortnite,null), "Fornite", "1€", "Test3"));
+        annonceList.add(new AnnonceEntity(4, ResourcesCompat.getDrawable(getResources(), R.drawable.fortnite,null), "Fornite", "1€", "Test3"));*/
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(annonceList);
 

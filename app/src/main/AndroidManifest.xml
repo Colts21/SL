@@ -3,6 +3,8 @@
     package="com.example.sl">
     //Ajout de la permission
     <uses-permission android:name="android.permission.INTERNET" />
+    //Ajout de la permission d'accès au stockage interne
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"

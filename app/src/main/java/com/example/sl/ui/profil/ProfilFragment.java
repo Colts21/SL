@@ -1,4 +1,4 @@
-package com.example.sl.ui.dashboard;
+package com.example.sl.ui.profil;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sl.R;
 
-public class DashboardFragment extends Fragment {
+public class ProfilFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private ProfilViewModel profilViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_add, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        profilViewModel =
+                new ViewModelProvider(this).get(ProfilViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_profil, container, false);
+        final TextView textView = root.findViewById(R.id.text_notifications);
+        profilViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

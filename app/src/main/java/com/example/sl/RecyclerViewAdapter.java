@@ -1,5 +1,7 @@
 package com.example.sl;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private List<AnnonceEntity> list;
+
+    private Context context;
 
     public RecyclerViewAdapter(List<AnnonceEntity> list){
         this.list = list;
@@ -36,6 +40,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.binding.imageView1.setImageDrawable(list.get(position).getImage());
         holder.binding.titleView.setText(list.get(position).getTitle());
         holder.binding.priceView.setText(list.get(position).getPrice());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, AnnoncesDetails.class );
+                i.putExtra("titre",list.get(position).getTitle());
+                i.putExtra("Prix",list.get(position).getPrice());
+                i.putExtra("Description",list.get(position).getDescription());
+
+                context.startActivity(i);
+            }
+        });
         //holder.binding.dateView.setText(list.get(position).getDate());
     }
 

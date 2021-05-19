@@ -22,6 +22,7 @@ import com.example.sl.databinding.FragmentHomeBinding;
 import com.example.sl.databinding.ItemDesignBinding;
 import com.example.sl.model.AnnonceEntity;
 import com.example.sl.network.AnnonceService;
+import com.example.sl.network.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -18,4 +19,7 @@ public interface AnnonceService {
 
     @POST("annonces")
     Call<AnnonceEntity> addAnnonces(@Body AnnonceRequest annonceRequest);
+
+    @DELETE("annonces/id")
+    Call<Void> deleteAnnonces(@Path("id") String id);
 }

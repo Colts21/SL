@@ -19,16 +19,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.sl.R;
 import com.example.sl.RecyclerViewAdapter;
 import com.example.sl.databinding.FragmentHomeBinding;
-import com.example.sl.databinding.ItemDesignBinding;
 import com.example.sl.model.AnnonceEntity;
-import com.example.sl.network.AnnonceService;
 import com.example.sl.network.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,21 +38,13 @@ public class HomeFragment extends Fragment {
     private List<AnnonceEntity> annonceList = new ArrayList<>();;
     private RecyclerViewAdapter recyclerViewAdapter;
 
-    //Appel de l'API via retrofit
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://localhost:5001/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    AnnonceService annonceService = retrofit.create(AnnonceService.class);
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         //Accès à tous le layout et les vues via le binding
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
 
         //Appel de la liste via l'API
-        Call<List<AnnonceEntity>> call = annonceService.getAnnonces();
+        Call<List<AnnonceEntity>> call = ApiClient.getAnnonceService().getAnnonces();
 
         call.enqueue(new Callback<List<AnnonceEntity>>() {
             @Override

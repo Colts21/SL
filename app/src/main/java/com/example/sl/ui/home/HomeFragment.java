@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.sl.AnnoncesDetails;
 import com.example.sl.R;
 import com.example.sl.RecyclerViewAdapter;
 import com.example.sl.databinding.FragmentHomeBinding;
@@ -50,7 +51,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<List<AnnonceEntity>> call, Response<List<AnnonceEntity>> response) {
                 annonceList = response.body();
-                recyclerViewAdapter = new RecyclerViewAdapter(annonceList);
+                recyclerViewAdapter = new RecyclerViewAdapter(getContext() , annonceList);
                 binding.recyclerView.setAdapter(recyclerViewAdapter);
             }
 
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
         annonceList.add(new AnnonceEntity(3, ResourcesCompat.getDrawable(getResources(), R.drawable.uno,null), "Uno", "5€", "Test2"));
         annonceList.add(new AnnonceEntity(4, ResourcesCompat.getDrawable(getResources(), R.drawable.fortnite,null), "Fornite", "1€", "Test3"));*/
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(annonceList);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext() , annonceList);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         binding.recyclerView.setAdapter(adapter);

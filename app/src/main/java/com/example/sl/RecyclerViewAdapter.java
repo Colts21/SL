@@ -22,7 +22,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context context;
 
-    public RecyclerViewAdapter(List<AnnonceEntity> list){
+    public RecyclerViewAdapter(Context context, List<AnnonceEntity> list){
+        this.context = context;
         this.list = list;
     }
 

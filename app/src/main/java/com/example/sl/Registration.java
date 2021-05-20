@@ -15,7 +15,7 @@ import com.example.sl.model.UserEntity;
 
 public class Registration extends AppCompatActivity {
 
-    EditText userId, password, name;
+    EditText userName, password, name, firstname, mail;
     Button register, login;
 
     @Override
@@ -23,9 +23,11 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        userId = findViewById(R.id.userId);
-        password = findViewById(R.id.password);
         name = findViewById(R.id.name);
+        firstname = findViewById(R.id.firstname);
+        mail = findViewById(R.id.emailId);
+        userName = findViewById(R.id.userId);
+        password = findViewById(R.id.password);
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);
 
@@ -34,9 +36,12 @@ public class Registration extends AppCompatActivity {
             public void onClick(View view) {
 
                 UserEntity userEntity =  new UserEntity();
-                userEntity.setUserId(userId.getText().toString());
-                userEntity.setPassword(password.getText().toString());
                 userEntity.setName(name.getText().toString());
+                userEntity.setFirstname(firstname.getText().toString());
+                userEntity.setEmail(mail.getText().toString());
+                userEntity.setUserId(userName.getText().toString());
+                userEntity.setPassword(password.getText().toString());
+
                 if (validateInput(userEntity)){
                     UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                     UserDao userDao = userDatabase.userDao();

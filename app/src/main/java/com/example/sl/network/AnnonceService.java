@@ -14,12 +14,12 @@ import retrofit2.http.Path;
 
 public interface AnnonceService {
 
-    @GET("annonces")
+    @GET("api/annonces")
     Call<List<AnnonceEntity>> getAnnonces();
 
-    @POST("annonces")
+    @POST("api/annonces")
     Call<AnnonceEntity> addAnnonces(@Body AnnonceRequest annonceRequest);
 
-    @DELETE("annonces/id")
+    @DELETE("api/annonces/id")
     Call<Void> deleteAnnonces(@Path("id") String id);
 }

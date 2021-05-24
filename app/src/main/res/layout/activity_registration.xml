@@ -66,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:hint="Entrez votre mot de passe"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sl.databinding.ItemDesignBinding;
 import com.example.sl.model.AnnonceEntity;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -40,10 +39,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.imageView1.setImageDrawable(list.get(position).getImage());
         holder.binding.titleView.setText(list.get(position).getTitle());
-        holder.binding.priceView.setText(list.get(position).getPrice());
+        holder.binding.priceView.setText(list.get(position).getPrice() + " €");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(context, AnnoncesDetails.class );
                 i.putExtra("titre",list.get(position).getTitle());
                 i.putExtra("Prix",list.get(position).getPrice());
@@ -52,7 +52,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 context.startActivity(i);
             }
         });
-        //holder.binding.dateView.setText(list.get(position).getDate());
     }
 
     @Override

@@ -2,8 +2,6 @@ package com.example.sl.model;
 
 import android.graphics.drawable.Drawable;
 
-import androidx.room.ColumnInfo;
-
 import java.time.LocalDateTime;
 
 public class AnnonceRequest {

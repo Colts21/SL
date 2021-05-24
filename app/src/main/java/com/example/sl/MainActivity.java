@@ -1,14 +1,6 @@
 package com.example.sl;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import com.example.sl.database.UserDao;
-import com.example.sl.database.UserDatabase;
-import com.example.sl.model.UserEntity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

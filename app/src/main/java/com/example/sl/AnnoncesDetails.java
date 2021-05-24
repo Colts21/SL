@@ -32,7 +32,7 @@ public class AnnoncesDetails extends AppCompatActivity {
         backView = findViewById(R.id.backId);
 
         annonceTitle.setText(title);
-        annoncePrice.setText(price);
+        annoncePrice.setText(price + " €");
         annonceDescription.setText(description);
 
         backView.setOnClickListener(new View.OnClickListener() {

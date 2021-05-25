@@ -44,7 +44,11 @@ public class Registration extends AppCompatActivity {
                 userEntity.setUserId(userName.getText().toString());
                 userEntity.setPassword(password.getText().toString());
 
-                if (validateInput(userEntity)){
+                if (name.getText().toString().isEmpty() || firstname.getText().toString().isEmpty() || mail.getText().toString().isEmpty() || userName.getText().toString().isEmpty() || password.getText().toString().isEmpty() ){
+                    Toast.makeText(getApplicationContext(), "Il faut remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                }else if (password.getText().toString().contains(specialcharacter) && password.getText().toString().contains(upperCase) && password.getText().toString().length() >6 ){
+                    Toast.makeText(getApplicationContext(), "Mot de passe fort", Toast.LENGTH_SHORT).show();
+                }else{
                     UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
                     UserDao userDao = userDatabase.userDao();
                     new Thread(new Runnable() {
@@ -60,13 +64,6 @@ public class Registration extends AppCompatActivity {
                             });
                         }
                     }).start();
-                }else if (name.getText().toString().isEmpty() || firstname.getText().toString().isEmpty() || mail.getText().toString().isEmpty() || userName.getText().toString().isEmpty() || password.getText().toString().isEmpty() ){
-                    Toast.makeText(getApplicationContext(), "Il faut remplir tous les champs !", Toast.LENGTH_SHORT).show();
-                }
-                else if (password.getText().toString().contains(specialcharacter) && password.getText().toString().contains(upperCase)){
-                    Toast.makeText(getApplicationContext(), "Mot de passe fort", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "Mot de passe faible", Toast.LENGTH_SHORT).show();
                 }
             }
         });

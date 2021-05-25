@@ -17,6 +17,8 @@ public class Registration extends AppCompatActivity {
 
     EditText userName, password, name, firstname, mail;
     Button register, login;
+    private String specialcharacter = "~#^|$%&*!";
+    private String upperCase = "(.*[A-Z].*)";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +60,13 @@ public class Registration extends AppCompatActivity {
                             });
                         }
                     }).start();
-                }else{
+                }else if (name.getText().toString().isEmpty() || firstname.getText().toString().isEmpty() || mail.getText().toString().isEmpty() || userName.getText().toString().isEmpty() || password.getText().toString().isEmpty() ){
                     Toast.makeText(getApplicationContext(), "Il faut remplir tous les champs !", Toast.LENGTH_SHORT).show();
+                }
+                else if (password.getText().toString().contains(specialcharacter) && password.getText().toString().contains(upperCase)){
+                    Toast.makeText(getApplicationContext(), "Mot de passe fort", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Mot de passe faible", Toast.LENGTH_SHORT).show();
                 }
             }
         });

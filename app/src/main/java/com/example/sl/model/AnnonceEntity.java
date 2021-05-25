@@ -27,22 +27,6 @@ public class AnnonceEntity {
     @ColumnInfo(name = "description")
     String description;
 
-    public AnnonceEntity(int id, Drawable image, String title, String price, LocalDateTime date, String description) {
-        this.id = id;
-        this.image = image;
-        this.title = title;
-        this.price = price;
-        this.date = date;
-        this.description = description;
-    }
-
-
-    public AnnonceEntity(int i, Drawable image, String fifa, String title, String price) {
-        this.image = image;
-        this.title = title;
-        this.price = price;
-    }
-
 
     public String getDescription() {
         return description;

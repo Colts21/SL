@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sl.R;
 import com.example.sl.model.AnnonceEntity;
-import com.example.sl.model.AnnonceRequest;
 import com.example.sl.network.ApiClient;
 
 import retrofit2.Call;
@@ -48,19 +47,19 @@ public class AddFragment extends Fragment {
         return root;
     }
 
-    public AnnonceRequest createRequest(){
+    public AnnonceEntity createRequest(){
 
-        AnnonceRequest annonceRequest = new AnnonceRequest();
-        annonceRequest.setTitle(titleId.getText().toString());
-        annonceRequest.setPrice(priceId.getText().toString());
-        annonceRequest.setDescription(descriptionId.getText().toString());
+        AnnonceEntity annonceEntity = new AnnonceEntity();
+        annonceEntity.setTitle(titleId.getText().toString());
+        annonceEntity.setPrice(priceId.getText().toString());
+        annonceEntity.setDescription(descriptionId.getText().toString());
 
-        return annonceRequest;
+        return annonceEntity;
     }
 
-    public void saveAnnonce(AnnonceRequest annonceRequest){
+    public void saveAnnonce(AnnonceEntity annonceEntity){
 
-        Call<AnnonceEntity> annonceEntityCall= ApiClient.getAnnonceService().addAnnonces(annonceRequest);
+        Call<AnnonceEntity> annonceEntityCall= ApiClient.getAnnonceService().addAnnonces(annonceEntity);
         annonceEntityCall.enqueue(new Callback<AnnonceEntity>() {
             @Override
             public void onResponse(Call<AnnonceEntity> call, Response<AnnonceEntity> response) {

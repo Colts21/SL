@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
         });
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext() , annonceList);
-
+        //Affichage de la recyclerView en 2 colonnes
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         binding.recyclerView.setAdapter(adapter);
 

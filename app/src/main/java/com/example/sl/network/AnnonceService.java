@@ -1,7 +1,6 @@
 package com.example.sl.network;
 
 import com.example.sl.model.AnnonceEntity;
-import com.example.sl.model.AnnonceRequest;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public interface AnnonceService {
     Call<List<AnnonceEntity>> getAnnonces();
 
     @POST("api/annonces")
-    Call<AnnonceEntity> addAnnonces(@Body AnnonceRequest annonceRequest);
+    Call<AnnonceEntity> addAnnonces(@Body AnnonceEntity annonceEntity);
 
     @DELETE("api/annonces/id")
     Call<Void> deleteAnnonces(@Path("id") String id);

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.sl.database.UserDao;
 import com.example.sl.database.UserDatabase;
 import com.example.sl.model.UserEntity;
@@ -48,8 +49,7 @@ public class Login extends AppCompatActivity {
                                     }
                                 });
                             } else{
-                                startActivity(new Intent(
-                                        Login.this, MainActivity.class));
+                                startActivity(new Intent(Login.this, MainActivity.class));
                             }
                         }
                     }).start();

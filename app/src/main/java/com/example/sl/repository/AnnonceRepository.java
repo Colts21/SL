@@ -18,4 +18,6 @@ public class AnnonceRepository {
     public Call<List<AnnonceEntity>> getAnnonces(){
         return annonceService.getAnnonces();
     }
+
+
 }

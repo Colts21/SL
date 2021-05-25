@@ -20,5 +20,5 @@ public interface AnnonceService {
     Call<AnnonceEntity> addAnnonces(@Body AnnonceEntity annonceEntity);
 
     @DELETE("api/annonces/id")
-    Call<Void> deleteAnnonces(@Path("id") String id);
+    Call<Void> deleteAnnonces(@Path("id") int id);
 }

@@ -63,4 +63,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
+    <Button
+        android:id="@+id/deleteId"
+        android:layout_width="112dp"
+        android:layout_height="30dp"
+        android:text="Supprimer"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionId" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
